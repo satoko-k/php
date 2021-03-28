@@ -16,21 +16,28 @@ $err = [];
 if(
     !isset($_POST["lid"]) ||$_POST["lid"] ==""
     ){
-        $err[]='IDを入力してください';
+        $err['id']='IDを入力してください';
         // exit('ParamError');
     }
 
 if(
     !isset($_POST["lpw"]) ||$_POST["lpw"] ==""
     ){
-        $err[]='パスワードを入力してください';
+        $err['pw']='パスワードを入力してください';
         // exit('ParamError');
     }
 
- if (count($err)===0){
-// エラーがなければここからログイン処理
+ if (count($err) > 0){
+    // エラーがあった場合はログイン画面に戻す
+    $_SESSION=$err;
+
+    header("Location: index.php");
+    return;
 
 
+ }
+
+//  ここから成功時の処理
 // １．ＤＢに接続する
 
     try {
@@ -70,56 +77,15 @@ if(
     }else{
         // ログイン処理NGの場合はlogin.phpへ遷移
         //  header("Location: index.php");
-        $err[]='IDとパスワードが一致しません';
+        $err['nomatch']='IDとパスワードが一致しません';
+        $_SESSION=$err;
+        header("Location: index.php");
     }
 
-}
+
 
     // var_dump($err);
 
 
     ?>
 
-
-
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/form.css" />
-    <title>メンバー登録</title>
-  </head>
-  <body>
-
-    <header>
-      <h1>雑草アプリ</h1>
-    </header>
-  <main>
-  <div class="wrapper">
-    <div class="imgArea">
-       <img src="img/tanpopo.jpg" alt="たんぽぽ">
-    </div><!---/imgArea--->
-
-    <div class="formArea">
-    <h2>ログイン</h2>
-        <?php if (count($err) >0) :?>
-            <p class="red"><?php foreach($err as $em){
-             echo $em."<br>";
-            } ?>
-            </p>
-             <a href="index.php">ログインへ戻る</a>
-            
-    
-        <?php endif; ?>
-      
-
-
-    </div><!--/.formArea--->
-  </div><!--/.wrapper--->
-        
-
-
-    </main>
-  </body>
-</html>

@@ -1,14 +1,14 @@
 <?php
 
-// //セッションの確認
-// session_start();
+//セッションの確認
+session_start();
 
-// include("function.php");
-// loginCheck();
+include("function.php");
+loginCheck();
 
-// // 今のセッションのidを取得する
-// $id     = $_SESSION["id"];
-// // echo $id;
+// 今のセッションのidを取得する
+$id     = $_SESSION["id"];
+// echo $id;
 
 // 1:DBに接続する（エラー処理の追加）
 
@@ -60,47 +60,37 @@ if(isset($_POST['correctAnswer'])){
 // 
 // 問題の配列を作る部分
 // 
-$quiztitle01 = ["このお花の名前は何でしょう？","img/tulips.jpg"];
-$quizChoice01 = ["チューリップ","ひまわり","たんぽぽ","ガーベラ"];
+$quiztitle01 = ["このお花の科名は何でしょう？","img/quize01.jpg"];
+$quizChoice01 = ["キク科","バラ科","タンポポ科","イネ科"];
 
-$quiztitle02 = ["このお花が咲く季節はなに？","img/sunflower.jpg"];
+$quiztitle02 = ["このお花が咲く季節はなに？","img/quize02.jpg"];
 $quizChoice02 = ["夏","春","秋","冬"];
 
-$quiztitle03 = ["これは何の実でしょう？","img/lily.jpg"];
-$quizChoice03 = ["ユリ","バラ","桜","ヒアシンス"];
+$quiztitle03 = ["この雑草の名前は何でしょう？","img/quize03.jpg"];
+$quizChoice03 = ["ホトケノザ","セリ","ナズナ","ハコベラ"];
 
-$quiztitle04 = ["このお花の名前は何でしょう？","img/tulips.jpg"];
-$quizChoice04 = ["チューリップ","ひまわり","たんぽぽ","ガーベラ"];
 
-$quiztitle05 = ["このお花の名前は何でしょう？","img/tulips.jpg"];
-$quizChoice05 = ["チューリップ","ひまわり","たんぽぽ","ガーベラ"];
-
-$quiztitle06 = ["このお花の名前は何でしょう？","img/tulips.jpg"];
-$quizChoice06 = ["チューリップ","ひまわり","たんぽぽ","ガーベラ"];
 
 // 答えはquizChoiceの配列の一番最初0番目にする
 $answer01 = $quizChoice01[0];
 $answer02 = $quizChoice02[0];
 $answer03 = $quizChoice03[0];
-$answer04 = $quizChoice04[0];
-$answer05 = $quizChoice05[0];
+
 
 // 選択肢の並び順をシャッフルさせる
 shuffle($quizChoice01);
 shuffle($quizChoice02);
 shuffle($quizChoice03);
-shuffle($quizChoice04);
-shuffle($quizChoice05);
+
 //問題文と選択肢の配列を結合する
 $quiz01 = array_merge($quiztitle01 ,$quizChoice01) ;
 $quiz02 = array_merge($quiztitle02 ,$quizChoice02) ;
 $quiz03 = array_merge($quiztitle03 ,$quizChoice03) ;
-$quiz04 = array_merge($quiztitle04 ,$quizChoice04) ;
-$quiz05 = array_merge($quiztitle05 ,$quizChoice05) ;
+
 // print_r($quiz01);
 // echo $answer;
 
-$quizArray = [$quiz01,$quiz02,$quiz03,$quiz04,$quiz05];
+$quizArray = [$quiz01,$quiz02,$quiz03];
 
 // var_dump ($quizArray);
 
@@ -122,7 +112,7 @@ $answerD = $quizArray[$questionNumber][5];
 
 
 // 問題番号に合わせた「答え」の指定
-$answerArray=[$answer01,$answer02,$answer03,$answer04,$answer05];
+$answerArray=[$answer01,$answer02,$answer03];
 // var_dump ($answerArray);
 $answer = $answerArray[$questionNumber];
 
@@ -136,6 +126,7 @@ $answer = $answerArray[$questionNumber];
 // echo $answerD;
 // echo $answer;
 
+
 ?>
 
 
@@ -145,26 +136,39 @@ $answer = $answerArray[$questionNumber];
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>雑草アプリ｜｜雑草クイズ</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reset.css /">
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/quize.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
     
   </head>
   <body>
-    <header>
-    
-      <h1>めざせ!! お花博士クイズ</h1>
+  <header>
+    <div class="log">
+        <p class="loginPlace"><?php echo h($_SESSION["u_name"]);?> <span style="font-size:14px;">さん</span><a href="logout.php" class="btn_logout">ログアウト</a></p>
+      </div>
+    <div class="header">
+    <p>雑草アプリ</p>
+      <h1>目指せ！雑草博士クイズ</h1>
 
+    </div>
     </header>
+    <div class="cp_breadcrumb" id="nav">
+      <ul class="breadcrumbs">
+      <li><a href="top.php">Home</a></li>
+      <li class="lastList">Quize</li>
+      </ul>
+  </div>
 
-    <main>
+    <main id="mainTop">
       <div class="quesionArea">
         <p class="questionNumber">問題<?php echo $questionNumber+1; ?></p>
         <h2><?php echo $quetionName;?></h2>
         <img src="<?php echo $quetionImage;?>" alt="" />
       </div>
       <p>答えを下から１つ選んでね。</p>
-      <form method="post" action="answer.php">
+      <form method="post" action="answer.php#mainTop">
         <input
           type="radio"
           id="choice01"

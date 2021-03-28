@@ -1,5 +1,15 @@
 
+<?php
+session_start();
+// var_dump($_SESSION)
+$err = $_SESSION;
 
+// セッションを消す
+$_SESSION = array();
+session_destroy();
+
+
+?>
 
 <html lang="ja">
   <head>
@@ -24,11 +34,19 @@
     </div><!---/imgArea--->
     <div class="formArea">
     <h2>ログイン</h2>
+           <?php if(isset($err['nomatch'])) : ?>
+              <p class="err"><?php echo $err['nomatch']; ?>
+            <?php endif; ?>
       <form method="post" action="login_act.php">
-
         <div class="form">
           <p><label for="">ログインID<br><input type="text" name="lid" /></label></p>
+            <?php if(isset($err['id'])) : ?>
+              <p class="err"><?php echo $err['id']; ?>
+            <?php endif; ?>
           <p><label for="">ログインPW<br><input type="password" name="lpw" /></label></p>
+            <?php if(isset($err['pw'])) : ?>
+              <p class="err"><?php echo $err['pw']; ?>
+            <?php endif; ?>
         </div><!--/.form--->
           <input type="submit" class="form-Btn" value="ログイン" /></buttom>
       </form>
