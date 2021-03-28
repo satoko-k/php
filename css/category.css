@@ -1,0 +1,208 @@
+.header {
+  width: 980px;
+  height: 150px;
+  margin: 0 auto;
+}
+h1 {
+  vertical-align: middle;
+  display: inline-flex;
+  margin-bottom: 0;
+}
+main {
+  width: 980px;
+  margin: 0 auto;
+}
+
+h3 {
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+.plantBox > p {
+  padding-left: 15px;
+  margin: 0;
+}
+
+/* 画像の部分のうごき */
+.plantImg {
+  width: 300px;
+  height: 300px;
+  display: block;
+}
+
+figure.hover-parent {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin: 5px 12px 30px 12px;
+}
+
+figcaption.hover-mask {
+  width: 280px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+figure.hover-parent:hover .hover-mask {
+  opacity: 1;
+  transition: all 0.6s ease;
+  padding-top: 0;
+}
+
+.weeds {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* パンくず */
+.cp_breadcrumb *,
+.cp_breadcrumb *:after,
+.cp_breadcrumb *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cp_breadcrumb {
+  margin: 1em 1em;
+  padding: 1em 2em;
+  background-color: #49a358;
+  color: #fff;
+  border-radius: 0.5em;
+}
+
+ul.breadcrumbs {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.cp_breadcrumb a {
+  text-decoration: none;
+  color: #93e0c7;
+}
+.cp_breadcrumb .breadcrumbs {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cp_breadcrumb li {
+  display: inline-block;
+  position: relative;
+  padding-right: calc(16px + 8px);
+  margin-right: 8px;
+  color: #93e0c7;
+}
+.cp_breadcrumb li::before {
+  content: "›";
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+  font-size: 1em;
+  color: inherit;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+li.lastList {
+  margin-right: 0;
+  padding-right: 0;
+  color: #ffffff;
+}
+.cp_breadcrumb li:last-child::before {
+  content: normal;
+}
+
+/* 検索部分 */
+.search {
+  padding: 0 30px;
+  background-color: hsla(204, 6%, 85%, 0.664);
+  border-radius: 8px;
+  width: 850px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+.search p {
+  padding: 0 20px;
+}
+.searchArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radio_input {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}
+
+.radio_label {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-right: 18px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  background-color: hsla(0, 0%, 100%, 0.788);
+  border: 1px solid #707070;
+}
+
+.radio_label:hover {
+  background: rgba(226, 226, 226, 0.432);
+}
+
+.radio_input:checked + .radio_label {
+  background: hsla(0, 0%, 2%, 0.582);
+  color: rgb(255, 255, 255);
+}
+
+.radio_input:focus + .radio_label {
+  outline-color: #353535;
+  outline-offset: -2px;
+  outline-style: auto;
+  outline-width: 5px;
+}
+.form-Btn {
+  border-radius: 50%;
+  font-size: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+.form-Btn:hover {
+  background-color: rgba(122, 122, 122, 0.6);
+}
+
+/* ページトップへの部分 */
+#page-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 77%;
+}
+#page-top a {
+  background: #666;
+  text-decoration: none;
+  color: #fff;
+  width: 100px;
+  padding: 30px 0;
+  text-align: center;
+  display: block;
+  border-radius: 5px;
+}
+#page-top a:hover {
+  text-decoration: none;
+  background: #999;
+}

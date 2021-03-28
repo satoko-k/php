@@ -1,0 +1,78 @@
+/* 雑草登録用ページ入力CSS */
+main {
+  width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+}
+.imgArea {
+  padding: 30px;
+}
+.formArea {
+  padding: 30px;
+}
+.formArea h2 {
+  text-align: center;
+}
+
+.form {
+  padding: 20px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 5px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: solid 1px #d3d3d3;
+  border-radius: 5px;
+}
+span.required {
+  font-size: 8px;
+  background-color: #ff6c91;
+  padding: 1px;
+  color: white;
+  /* border: solid; */
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.submitbtn {
+  padding: 10px 20px;
+}
+
+/* 雑草登録用ページヘッダー */
+header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-Btn {
+  border-radius: 6px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 200px;
+  display: block;
+  letter-spacing: 0.05em;
+  background: #5bc8ac;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.red {
+  color: red;
+}
+
+.err {
+  font-size: 14px;
+  color: red;
+}
