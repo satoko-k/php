@@ -35,8 +35,9 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
     //Selectデータの数だけ自動でループして$resultに入れてくれる
     while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
            //「.=」で追加　「=」だと上書きしてしまう
+
            $view .='<div class="plantBox">';
-           $view .='<h3>';
+           $view .='<h3>' ;
            $view .= $result["p_name"];
            $view .='</h3>';
            $view .='<p>';
@@ -52,14 +53,24 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
            $view .='<figcaption class="hover-mask">';     
            $view .=$result["comment"];
            $view .='</figcaption>';     
-           $view .='</figure>';     
+           $view .='</figure>';
+           $view .='<?php if ($count == 0) : ?>';
+           $view .='<form action="likes_test.php" method="post">';    
+           $view .='<button type="submit" class="find" name="plant_id" value="';    
+           $view .=$result["id"];   
+           $view .='">お気に入りに登録</button>';       
+           $view .='<?php else : ?>';
+            $view .='<form action="zukan.php" method="post">';    
+            $view .='<button type="submit" class="find" name="plant_id" value="';    
+            $view .=$result["id"];   
+            $view .='">お気に入り解除</button>';    
            $view .='</div>';  
-   
-   
+     
 
     }
 }
-    // ＄viewを表示したいところでechoする。
+
+
 
 
 
@@ -134,6 +145,18 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
     <script src="js/slick.js"></script> -->
     <!-- jsを読み込む -->
     <script src="js/app.js"></script>
+  <script>
+  $(function () {
+                $('.find').on('click', function () {
+                    if ($(this).text() === 'お気に入りに登録') {
+                        $(this).text('お気に入りに解除');
+                    } else {
+                        $(this).text('お気に入りに登録');
+                    }
+                });
+            });
+
+</script>
     
   </body>
 </html>

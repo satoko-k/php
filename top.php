@@ -112,6 +112,7 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
               <p>こんにちは！</p>
               <h2><?php echo h($_SESSION["u_name"]);?> <span style="font-size:18px;">さん</span></h2>
               <h3><span style="font-size:16px;">メンバーランク：</span><?php echo $val["rank_flg"] ;?></h3>
+              <p><a href="favorite.php">お気に入りの雑草をみる</a></p>
             </div>
 
         </div><!--/.profile--->
