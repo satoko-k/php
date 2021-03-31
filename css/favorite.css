@@ -23,107 +23,26 @@ h3 {
 }
 
 /* 画像の部分のうごき */
+
+/* 
+ */
+#favoriteArea {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#favorite {
+  padding: 7px;
+}
+#favorite > p {
+  margin: 5px 0;
+  font-size: 12px;
+}
+
 .plantImg {
-  width: 300px;
-  height: 300px;
+  width: 230px;
+  height: 230px;
   display: block;
-}
-
-figure.hover-parent {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  overflow: hidden;
-  margin: 5px 12px 10px 12px;
-}
-
-figcaption.hover-mask {
-  width: 280px;
-  height: 300px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-}
-figure.hover-parent:hover .hover-mask {
-  opacity: 1;
-  transition: all 0.6s ease;
-  padding-top: 0;
-}
-
-.weeds {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* パンくず */
-.cp_breadcrumb *,
-.cp_breadcrumb *:after,
-.cp_breadcrumb *:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.cp_breadcrumb {
-  margin: 1em 1em;
-  padding: 1em 2em;
-  background-color: #49a358;
-  color: #fff;
-  border-radius: 0.5em;
-}
-
-ul.breadcrumbs {
-  width: 980px;
-  margin: 0 auto;
-}
-
-.cp_breadcrumb a {
-  text-decoration: none;
-  color: #93e0c7;
-}
-.cp_breadcrumb .breadcrumbs {
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-}
-.cp_breadcrumb li {
-  display: inline-block;
-  position: relative;
-  padding-right: calc(16px + 8px);
-  margin-right: 8px;
-  color: #93e0c7;
-}
-.cp_breadcrumb li::before {
-  content: "›";
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-align: center;
-  font-size: 1em;
-  color: inherit;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-li.lastList {
-  margin-right: 0;
-  padding-right: 0;
-  color: #ffffff;
-}
-.cp_breadcrumb li:last-child::before {
-  content: normal;
 }
 
 /* 検索部分 */
@@ -140,9 +59,15 @@ li.lastList {
 }
 .searchArea {
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  justify-content: flex-end;
 }
+
+.searchArea > button {
+  margin: 0 10px;
+}
+
 .radio_input {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -207,12 +132,8 @@ li.lastList {
   background: #999;
 }
 
-#favoriteArea {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.findbtn:visited {
-  background-color: darkgrey;
+.dateResult {
+  background-color: khaki;
+  display: inline;
+  padding: 5px 20px;
 }
