@@ -16,7 +16,7 @@
     session_destroy();
 
 // 処理後にindex.phpなどへリダイレクト
-    header("Location: index.php");
+    header("Location: thanks.php");
     exit();
 
 

@@ -118,11 +118,11 @@
   <script type="text/javascript">
     $(function() {
       setTimeout(function(){
-        $('.start p').fadeIn(1000);
-      },500); //0.5秒後にロゴをフェードイン!フェードイン時間は１.5秒
+        $('.start p').fadeIn(700);
+      },100); //0.5秒後にロゴをフェードイン!フェードイン時間は１.5秒
       setTimeout(function(){
         $('.start').fadeOut(500);
-      },2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+      },2000); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
     });
 </script>
 

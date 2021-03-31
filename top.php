@@ -60,7 +60,7 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>雑草図鑑|||トップページ</title>
+    <title>雑草アプリ|||トップページ</title>
     <link rel="stylesheet" href="css/reset.css /">
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/top.css" />
@@ -74,7 +74,7 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
         <p class="loginPlace"><a href="logout.php" class="btn_logout">ログアウト</a></p>
       </div>
     <div class="header">
-      <h1>雑草図鑑</h1>
+      <h1>雑草アプリ</h1>
       <p>身近にすごす草花たちに会いに行こう。</p>
     </div>
     </header>
@@ -111,8 +111,8 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
             <div class="nameArea">
               <p>こんにちは！</p>
               <h2><?php echo h($_SESSION["u_name"]);?> <span style="font-size:18px;">さん</span></h2>
-              <h3><span style="font-size:16px;">メンバーランク：</span><?php echo $val["rank_flg"] ;?></h3>
-              <p><a href="favorite.php">お気に入りの雑草をみる</a></p>
+              <h3 class="rankArea"><span style="font-size:16px;">メンバーランク：</span><?php echo $val["rank_flg"] ;?></h3>
+              <p><a href="favorite.php">みつけた雑草をみる</a></p>
             </div>
 
         </div><!--/.profile--->

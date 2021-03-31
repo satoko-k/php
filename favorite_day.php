@@ -8,6 +8,11 @@ loginCheck();
 // echo $_SESSION["u_name"] ;
 // echo $_SESSION["rank_flg"];
 $member_id = $_SESSION["id"];
+
+$date_start = $_POST["date_start"];
+$date_end = $_POST["date_end"];
+
+// echo $date_start;
 /////////////////////////
 // データの抽出
 ///////////////////////
@@ -18,8 +23,11 @@ $pdo = db_connect();
 
 //2：データ登録のSQL作成[選択]
 
-    $stmt = $pdo->prepare("SELECT * FROM likes_table JOIN camp_plant_table ON likes_table.plant_id = camp_plant_table.id WHERE member_id=:member_id ORDER BY likes_table.createtime DESC");
+    $stmt = $pdo->prepare("SELECT * FROM likes_table JOIN camp_plant_table ON likes_table.plant_id = camp_plant_table.id 
+    WHERE member_id=:member_id AND likes_table.createtime BETWEEN '$date_start' AND '$date_end' ORDER BY likes_table.createtime DESC");
     $stmt->bindValue(':member_id', $member_id, PDO::PARAM_INT); 
+    // $stmt->bindValue(':date_start', $date_start, PDO::PARAM_STR); 
+    // $stmt->bindValue(':date_end', $date_end, PDO::PARAM_STR); 
 
 
     // SQLの実行
@@ -48,14 +56,6 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
            $view .='見つけた日：';
            $view .= $result["createtime"];
            $view .='</p>';
-           $view .='<form action="delete.php" method="post">';    
-           $view .='<input type="hidden" name="createtime" value="';  
-           $view .=$result["createtime"]; 
-           $view .='">';              
-           $view .='<button type="submit" class="find" name="plant_id" value="';    
-           $view .=$result["id"];   
-           $view .='">削除する</button>';       
-           $view .='</form>'; 
            $view .='</div>';
 
 
@@ -90,28 +90,34 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
     <div class="header">
       <h1>雑草アプリ</h1>
       <p>身近にすごす草花たちに会いに行こう。</p>
+
     </div>
     </header>
     <div class="cp_breadcrumb" id="nav">
       <ul class="breadcrumbs">
       <li><a href="top.php">Home</a></li>
-      <li class="lastList">Myfavorite</li>
+      <li><a href="favorite.php">Myfaorite</a></li>
+      <li class="lastList">見つけた日で検索</li>
       </ul>
   </div>
 
     <main>
      <h2><?php echo h($_SESSION["u_name"]);?>さんが見つけた雑草たち</h2>
-     
+     <p class="dateResult"><?php echo $date_start; ?>　～　<?php echo $date_end; ?>　の検索結果</p>
+
+     <!-- 登録日で検索 -->
       <form class="searchArea" method="post" action="favorite_day.php#nav">
-      <input type="date" name="date_start" value="<?php echo date('Y-m-d'); ?>">
-      ～
-      <input type="date" name="date_end" value="<?php echo date('Y-m-d'); ?>">
-      <button type="submit">見つけた日で検索</button>
+          <input type="date" name="date_start" value="<?php echo date('Y-m-d'); ?>">
+          ～
+          <input type="date" name="date_end" value="<?php echo date('Y-m-d'); ?>">
+          <button type="submit">見つけた日で検索</button>
       </form>
+
 
      <div id="favoriteArea">
      <?php echo ($view) ?>
       </div>
+     
 
 
       <p id="page-top"><a href="#nav">PAGE TOP</a></p>

@@ -102,7 +102,7 @@ exit("ErrorQuery:".$error[2]);   //"ErrorQuery:"を日本語にしてもＯＫ�
 
 
      <div class="search">
-        <form class="searchArea" method="post" action="season.php">
+        <form class="searchArea" method="post" action="season.php#nav">
           <p>絞り込む </p>
           <div><p>
             <input type="radio" id="season1" class="radio_input" name="season" <?php if (isset($selectseason) && $selectseason=="春") echo "checked";?> value="春"><label class="radio_label" for="season1" >春の雑草</label>
