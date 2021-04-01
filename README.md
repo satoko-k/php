@@ -3,9 +3,11 @@
 <br>
 PHPとmySQLのデーターベースを使用したアプリ<br>
 <br>
-挑戦内容<br>
-mySQLのINSERT、SELECT、UPDATE、DELATEすべての実装<br>
-２つのテーブルをJOINさせてからのSELECT<br>
-会員登録、ログイン時、画像アップロード時のバリデーションによるエラーの表示<br>
-ログイン認証機能<br>
-<br>
+<h2>挑戦内容</h2>
+<ul>
+  <li>mySQLのINSERT、SELECT、UPDATE、DELATEすべての実装</li>
+  <li>２つのテーブルをJOINさせてからのSELECT</li>
+  <li>会員登録、ログイン時、画像アップロード時のバリデーションによるエラーの表示</li>
+  <li>ログイン認証機能</li>
+ 
+</ul>
