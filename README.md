@@ -16,3 +16,6 @@ PHPとmySQLのデーターベースを使用したアプリ<br>
 <p>トップページ</p>
 <img src='https://user-images.githubusercontent.com/80142169/115460506-5109f080-a263-11eb-99a3-6b675e6a7bb0.png'>
 
+<p>図鑑ぺージ</p>
+<p>画像にマウスをあてると説明文が表示されます</p>
+<img src='https://user-images.githubusercontent.com/80142169/115461664-a5fa3680-a264-11eb-9dd9-433333e8c3fb.png'>
