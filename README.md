@@ -12,6 +12,7 @@ PHPとmySQLのデーターベースを使用したアプリ<br>
  
 </ul>
 <p>ログイン画面</p>
+<img src='https://user-images.githubusercontent.com/80142169/115460386-2c157d80-a263-11eb-832d-5fbdd511ea2d.png'>
 ![login](https://user-images.githubusercontent.com/80142169/115460386-2c157d80-a263-11eb-832d-5fbdd511ea2d.png)
 <p>バリデーションによるエラー表示例</p>
 ![login_err](https://user-images.githubusercontent.com/80142169/115460471-47808880-a263-11eb-91e4-d79e9963c0fb.png)
